@@ -3,17 +3,17 @@ version: "3.7"
 services:
   evolution_v2:
     ### Escolha sua versão: https://hub.docker.com/r/atendai/evolution-api/tags
-    image: atendai/evolution-api:v2.0.7-rc ## Versão da Evolution API
+    image: atendai/evolution-api:latest ## Versão da Evolution API
     volumes:
       - evolution_instancesv2:/evolution/instances
     networks:
       - network_public
     environment:
     ## Url da Evolution API
-    - SERVER_URL=https://seudominio.com.br
+    - SERVER_URL=https://api.aposistemas.com.br
     ## Dados de Autenticação
     - AUTHENTICATION_TYPE=apikey
-    - AUTHENTICATION_API_KEY=Suapikeyaqui ## GLOBAL API KEY
+    - AUTHENTICATION_API_KEY=afgryhdertfhdfghdfh ## GLOBAL API KEY
     - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
     ## Configurações
     - LANGUAGE=pt-BR
@@ -139,7 +139,7 @@ services:
         - node.role == manager
       labels:
       - traefik.enable=1
-      - traefik.http.routers.evolution_v2.rule=Host(`seudominio.com.br`) ## Url da aplicação
+      - traefik.http.routers.evolution_v2.rule=Host(`api.aposistemas.com.br`) ## Url da aplicação
       - traefik.http.routers.evolution_v2.entrypoints=websecure
       - traefik.http.routers.evolution_v2.priority=1
       - traefik.http.routers.evolution_v2.tls.certresolver=letsencryptresolver
